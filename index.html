@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casmo — OTC Exchange</title>
+<!-- ═══ SEO & META ═══ -->
+<meta name="description" content="Casmo — лицензированный OTC деск для крупного бизнеса. Конвертация USDT в USD, EUR, AED, KZT, RUB. Персональный менеджер, AML верификация, договор на каждую сделку. Минимальная сделка $15 000.">
+<meta name="keywords" content="OTC деск, обмен USDT, крипто обменник, USDT в рубли, USDT в доллары, OTC exchange, crypto OTC, USDT RUB, USDT USD, импортёры оплата поставщиков, крипто платежи бизнес">
+<meta name="author" content="Casmo Exchange">
+<meta name="robots" content="index, follow">
+<meta name="language" content="ru,en,es">
+<link rel="canonical" href="https://casmo.exchange/">
+
+<!-- ═══ Open Graph (соцсети, Telegram превью) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://casmo.exchange/">
+<meta property="og:title" content="Casmo — OTC деск для крупного бизнеса">
+<meta property="og:description" content="Конвертация USDT в USD, EUR, AED и другие валюты. Персональный менеджер, AML верификация, юридический договор. Минимальная сделка $15 000.">
+<meta property="og:image" content="https://casmo.exchange/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Casmo Exchange">
+
+<!-- ═══ Twitter / X Card ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Casmo — OTC деск для крупного бизнеса">
+<meta name="twitter:description" content="Конвертация USDT в USD, EUR, AED. Персональный менеджер, AML, договор.">
+<meta name="twitter:image" content="https://casmo.exchange/og-image.png">
+
+<!-- ═══ Structured Data (JSON-LD) ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "Casmo Exchange",
+  "description": "Лицензированный OTC деск для крупного бизнеса. Конвертация USDT в USD, EUR, AED, KZT, RUB.",
+  "url": "https://casmo.exchange",
+  "logo": "https://casmo.exchange/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": ["Russian", "English", "Spanish"]
+  },
+  "areaServed": "Worldwide",
+  "currenciesAccepted": "USD, EUR, AED, KZT, RUB, GBP, USDT",
+  "serviceType": "OTC Cryptocurrency Exchange",
+  "openingHours": "Mo-Su 00:00-24:00"
+}
+</script>
+
+<!-- ═══ Фавикон ═══ -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="theme-color" content="#1A1A22">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#1A1A22;--s1:#1F1F29;--s2:#25252F;--s3:#2C2C38;
+  --a:#6B5CE7;--ah:rgba(107,92,231,.1);--ab:rgba(107,92,231,.22);
+  --t1:#E0E1EE;--t2:#6B6D88;--t3:#3A3C52;
+  --r:10px;--r2:14px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Golos Text',sans-serif;
+  background:var(--bg);color:var(--t1);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;font-weight:400;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;height:68px;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:0 52px;
+  background:rgba(26,26,34,.95);backdrop-filter:blur(24px);
+}
+.logo{
+  font-size:36px;font-weight:700;letter-spacing:-.03em;
+  color:var(--t1);cursor:pointer;
+  justify-self:center;
+}
+.logo span{color:var(--a)}
+.nav-links{
+  display:flex;gap:36px;justify-content:center;align-items:center;
+}
+.nav-links a{
+  font-size:15px;font-weight:400;color:var(--t2);
+  text-decoration:none;transition:color .15s;cursor:pointer;
+  white-space:nowrap;
+}
+.nav-links a:hover,.nav-links a.on{color:var(--t1)}
+.nav-r{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+
+/* Language — rectangular flag style */
+.ldrop{position:relative}
+.lcur{
+  display:flex;align-items:center;gap:7px;
+  font-size:13.5px;font-weight:500;color:var(--t1);
+  background:var(--s1);border:1px solid rgba(255,255,255,.07);
+  border-radius:8px;padding:7px 12px;cursor:pointer;
+  transition:background .15s;user-select:none;
+  font-family:'Golos Text',sans-serif;
+}
+.lcur:hover{background:var(--s2)}
+.lcur svg{flex-shrink:0;transition:transform .2s;color:var(--t3)}
+.lcur.open svg{transform:rotate(180deg)}
+.flag-rect{
+  width:22px;height:15px;border-radius:2px;
+  overflow:hidden;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.flag-rect img{width:22px;height:15px;object-fit:cover;border-radius:2px;display:block}
+.lmenu{
+  position:absolute;top:calc(100% + 6px);right:0;
+  background:var(--s2);border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;padding:5px;min-width:152px;
+  opacity:0;transform:translateY(-6px);pointer-events:none;
+  transition:opacity .18s,transform .18s;z-index:300;
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+}
+.lmenu.open{opacity:1;transform:none;pointer-events:all}
+.lopt{
+  display:flex;align-items:center;gap:9px;
+  padding:9px 10px;border-radius:6px;cursor:pointer;
+  font-size:14px;font-weight:400;color:var(--t2);
+  transition:background .12s,color .12s;
+}
+.lopt:hover{background:var(--s3);color:var(--t1)}
+.lopt.on{color:var(--t1)}
+.ncta{
+  padding:10px 22px;border-radius:var(--r);background:var(--a);color:#fff;
+  font-size:14.5px;font-weight:500;border:none;cursor:pointer;
+  font-family:'Golos Text',sans-serif;transition:opacity .15s,transform .15s;
+}
+.ncta:hover{opacity:.85;transform:translateY(-1px)}
+
+/* ── PAGE ── */
+.page{display:none;min-height:100vh}
+.page.on{display:block;animation:pin .4s cubic-bezier(.4,0,.2,1) both}
+@keyframes pin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ── HERO — centered ── */
+.hero{
+  min-height:90vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:100px 60px 72px;
+  max-width:900px;margin:0 auto;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--ab);border-radius:6px;
+  padding:6px 14px;margin-bottom:28px;
+  background:var(--ah);
+}
+.ed{width:5px;height:5px;border-radius:50%;background:var(--a)}
+.et{font-size:12px;font-weight:600;color:var(--a);letter-spacing:.1em}
+.hero h1{
+  font-size:clamp(30px,3.4vw,46px);
+  font-weight:600;
+  line-height:1.08;letter-spacing:-.035em;
+  margin-bottom:24px;
+}
+.hero h1 .ac{color:var(--a);font-weight:600}
+.hero-sub{
+  font-size:18px;font-weight:400;color:var(--t2);
+  line-height:1.65;max-width:520px;margin:0 auto 40px;
+}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.bp{
+  padding:16px 36px;border-radius:var(--r);
+  background:var(--a);color:#fff;
+  font-size:16px;font-weight:500;
+  border:none;cursor:pointer;font-family:'Golos Text',sans-serif;
+  transition:all .18s;
+}
+.bp:hover{opacity:.85;transform:translateY(-1px)}
+.bg{
+  padding:16px 36px;border-radius:var(--r);
+  background:rgba(255,255,255,.06);color:var(--t1);
+  font-size:16px;font-weight:500;
+  border:1px solid rgba(255,255,255,.12);cursor:pointer;
+  font-family:'Golos Text',sans-serif;transition:all .18s;
+}
+.bg:hover{background:rgba(255,255,255,.1)}
+.bg-sm{
+  padding:11px 22px;border-radius:var(--r);
+  background:rgba(255,255,255,.06);color:var(--t1);
+  font-size:14.5px;font-weight:500;
+  border:1px solid rgba(255,255,255,.1);cursor:pointer;
+  font-family:'Golos Text',sans-serif;transition:all .18s;
+  display:inline-block;
+}
+.bg-sm:hover{background:rgba(255,255,255,.1)}
+
+/* ── RATES SECTION ── */
+.rates-sec{
+  background:var(--s1);
+  padding:0;
+}
+.rates-in{
+  max-width:1200px;margin:0 auto;padding:0 60px;
+  display:grid;grid-template-columns:300px 1fr;
+  align-items:start;
+}
+.rates-l{
+  padding:44px 48px 44px 0;
+}
+.sl{font-size:12px;font-weight:600;color:var(--a);letter-spacing:.1em;margin-bottom:10px}
+.rates-l h3{font-size:26px;font-weight:600;letter-spacing:-.03em;margin-bottom:10px;line-height:1.2}
+.rates-l p{font-size:15px;font-weight:400;color:var(--t2);line-height:1.65;margin-bottom:22px}
+.rates-r{padding:36px 0 36px 48px}
+.wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.wlbl{font-size:12px;font-weight:600;color:var(--t3);letter-spacing:.1em}
+.wlive{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:#4ADE80}
+.ldot{width:5px;height:5px;border-radius:50%;background:#4ADE80;animation:blink 1.8s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.wtabs{display:flex;gap:6px;margin-bottom:16px}
+.wtab{padding:6px 14px;border-radius:6px;font-size:13px;font-weight:500;background:var(--s2);color:var(--t3);border:none;cursor:pointer;font-family:'Golos Text',sans-serif;transition:all .15s}
+.wtab.on{background:var(--a);color:#fff}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.rc{background:var(--s2);border-radius:var(--r);padding:14px 16px;transition:background .15s}
+.rc:hover{background:var(--s3)}
+.rcfl{font-size:18px;margin-bottom:5px}
+.rcn{font-size:14px;font-weight:600}
+.rcs{font-size:11px;color:var(--t3);margin-bottom:7px}
+.rcv{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.rcc{font-size:11px;font-weight:500;margin-top:3px;color:#4ADE80}
+.rcc.dn{color:#F87171}
+.rnote{font-size:11.5px;color:var(--t3);margin-top:12px}
+
+/* ── SECTION INTRO ── */
+.si{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:start;
+  padding:80px 60px 40px;max-width:1200px;margin:0 auto;
+}
+.si-l .sl{margin-bottom:10px}
+.si-l h2{
+  font-size:clamp(30px,3.5vw,46px);
+  font-weight:600;letter-spacing:-.03em;line-height:1.08;
+}
+.si-r{padding-top:6px}
+.si-r p{font-size:16px;font-weight:400;color:var(--t2);line-height:1.7;margin-bottom:20px}
+
+/* ── CARDS ── */
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;padding:0 60px 80px;max-width:1200px;margin:0 auto;
+}
+.card{
+  background:var(--s1);border-radius:var(--r2);
+  padding:32px 28px;cursor:default;
+  transition:background .2s,transform .2s;position:relative;
+}
+.card:hover{background:var(--s2);transform:translateY(-2px)}
+.ca{
+  position:absolute;top:24px;right:24px;
+  width:28px;height:28px;border-radius:6px;
+  background:rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s;cursor:pointer;
+}
+.card:hover .ca{background:var(--a)}
+.ctag{
+  font-size:11px;font-weight:600;letter-spacing:.1em;
+  padding:3px 9px;border-radius:4px;
+  display:inline-block;margin-bottom:16px;
+  background:var(--ah);color:var(--a);
+}
+.card h3{font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:9px;padding-right:34px;line-height:1.3}
+.card p{font-size:14px;font-weight:400;color:var(--t2);line-height:1.65;margin-bottom:18px}
+.cfl{list-style:none}
+.cfl li{
+  font-size:13.5px;font-weight:400;color:var(--t2);
+  padding:6px 0;border-top:1px solid rgba(255,255,255,.04);
+  display:flex;align-items:center;gap:7px;
+}
+.cfl li:first-child{border-top:none}
+.cfd{width:4px;height:4px;border-radius:50%;background:var(--a);flex-shrink:0}
+
+/* ── FEAT GRID ── */
+.fg{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;padding:0 60px 52px;max-width:1200px;margin:0 auto;
+}
+.fc{
+  background:var(--s1);border-radius:var(--r2);
+  padding:28px 24px;display:flex;gap:16px;
+  transition:background .18s;
+}
+.fc:hover{background:var(--s2)}
+.fci{
+  width:36px;height:36px;flex-shrink:0;
+  border-radius:9px;background:var(--ah);
+  border:1px solid var(--ab);
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.fc h4{font-size:15px;font-weight:600;letter-spacing:-.02em;margin-bottom:5px}
+.fc p{font-size:13.5px;font-weight:400;color:var(--t2);line-height:1.62}
+
+/* ── FORM ── */
+.fwrap{max-width:500px;margin:0 auto;padding:0 60px 80px}
+.fbox{background:var(--s1);border-radius:var(--r2);padding:32px 28px}
+.ft{font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:4px}
+.fsub{font-size:13.5px;font-weight:400;color:var(--t2);margin-bottom:22px}
+.fi{margin-bottom:10px}
+.fi label{display:block;font-size:11px;font-weight:600;color:var(--t3);letter-spacing:.1em;margin-bottom:5px}
+.fi input,.fi select{
+  width:100%;padding:10px 14px;
+  background:var(--s2);border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r);color:var(--t1);
+  font-size:14px;font-family:'Golos Text',sans-serif;font-weight:400;
+  outline:none;transition:border-color .15s;
+}
+.fi input:focus,.fi select:focus{border-color:var(--a)}
+.fi select option{background:var(--s1)}
+.fi2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fbtn{
+  width:100%;margin-top:6px;
+  padding:13px;border-radius:var(--r);
+  background:var(--a);color:#fff;font-size:15px;font-weight:500;
+  border:none;cursor:pointer;font-family:'Golos Text',sans-serif;
+  transition:all .18s;
+}
+.fbtn:hover{opacity:.85;transform:translateY(-1px)}
+.fleg{font-size:11.5px;font-weight:400;color:var(--t3);text-align:center;margin-top:9px}
+
+/* ── TIMELINE ── */
+.tlw{max-width:720px;margin:0 auto;padding:0 60px 80px}
+.ts{display:flex;gap:28px;padding:28px 0;border-bottom:1px solid rgba(107,92,231,.1)}
+.ts:last-child{border-bottom:none}
+.tn{width:38px;height:38px;flex-shrink:0;border-radius:50%;background:var(--s1);border:1.5px solid var(--a);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--a);margin-top:4px}
+.tctag{font-size:11px;font-weight:600;color:var(--a);letter-spacing:.1em;background:var(--ah);display:inline-block;padding:2px 9px;border-radius:4px;margin-bottom:7px}
+.tc h3{font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:7px}
+.tc p{font-size:14px;font-weight:400;color:var(--t2);line-height:1.65}
+
+/* ── ABOUT ── */
+.ag{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;padding:0 60px 80px;max-width:1200px;margin:0 auto;
+}
+.acard{background:var(--s1);border-radius:var(--r2);padding:28px 24px;transition:background .18s}
+.acard:hover{background:var(--s2)}
+.acard h4{font-size:16px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
+.acard p{font-size:13.5px;font-weight:400;color:var(--t2);line-height:1.65}
+
+/* ── ACCENT COLOR — hero heading ── */
+.ac{color:var(--a)}
+
+/* ── CTA ── */
+.cw{padding:0 60px 80px;max-width:1200px;margin:0 auto}
+.ci{
+  background:var(--s1);border-radius:var(--r2);
+  padding:48px 44px;display:flex;
+  align-items:center;justify-content:space-between;gap:40px;
+}
+.ci h2{font-size:clamp(20px,2.8vw,30px);font-weight:600;letter-spacing:-.03em;margin-bottom:7px}
+.ci p{font-size:15px;font-weight:400;color:var(--t2);line-height:1.6}
+.cbtns{display:flex;gap:12px;flex-shrink:0}
+.tgb{
+  padding:13px 22px;border-radius:var(--r);background:var(--a);color:#fff;
+  font-size:14.5px;font-weight:500;border:none;cursor:pointer;
+  font-family:'Golos Text',sans-serif;
+  display:flex;align-items:center;gap:7px;transition:all .18s;white-space:nowrap;
+}
+.tgb:hover{opacity:.85;transform:translateY(-1px)}
+
+/* ── FOOTER ── */
+.foot{background:var(--s1);padding:52px 60px 24px;display:flex;gap:60px;flex-wrap:wrap}
+.fb .fl{font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:7px}
+.fb .fl span{color:var(--a)}
+.fb p{font-size:13px;font-weight:400;color:var(--t3);line-height:1.5;max-width:200px}
+.fcol h5{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--t3);margin-bottom:14px}
+.fcol a{display:block;font-size:14px;font-weight:400;color:var(--t2);text-decoration:none;margin-bottom:9px;transition:color .15s;cursor:pointer}
+.fcol a:hover{color:var(--t1)}
+.fbtm{padding:18px 60px;display:flex;justify-content:space-between;font-size:12.5px;font-weight:400;color:var(--t3);flex-wrap:wrap;gap:8px;background:var(--s1)}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+
+/* ── MOBILE ── */
+@media(max-width:1024px){
+  nav{grid-template-columns:1fr auto 1fr;padding:0 32px}
+  .nav-links{justify-content:center}
+}
+@media(max-width:768px){
+  nav{grid-template-columns:1fr auto;padding:0 20px}
+  .logo{justify-self:start}
+  .nav-links{display:none}
+  .hero{padding:88px 20px 56px}
+  .hero h1{font-size:clamp(40px,11vw,72px)}
+  .hero-btns{flex-direction:column;align-items:center}
+  .bp,.bg{width:100%;max-width:320px;text-align:center}
+  .rates-in{grid-template-columns:1fr;padding:0 20px}
+  .rates-l{border-right:none;border-bottom:1px solid rgba(255,255,255,.05);padding:28px 0;padding-bottom:28px}
+  .rates-r{padding:24px 0}
+  .rg{grid-template-columns:repeat(2,1fr)}
+  .si{grid-template-columns:1fr;padding:56px 20px 28px;gap:16px}
+  .cards{grid-template-columns:1fr;padding:0 20px 56px}
+  .fg{grid-template-columns:1fr;padding:0 20px 48px}
+  .ag{grid-template-columns:1fr;padding:0 20px 56px}
+  .tlw{padding:0 20px 56px}
+  .fwrap{padding:0 20px 56px}
+  .cw{padding:0 20px 56px}
+  .ci{flex-direction:column;align-items:flex-start;padding:28px 22px}
+  .cbtns{width:100%}
+  .foot{padding:36px 20px 20px;gap:24px}
+  .fbtm{padding:14px 20px;flex-direction:column}
+}
+@media(max-width:480px){
+  .hero h1{font-size:36px}
+  .rg{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo" onclick="go('home')">casmo<span>.</span></div>
+  <div class="nav-links" id="nl">
+    <a onclick="go('services')" data-i="n1">Услуги</a>
+    <a onclick="go('otc')" data-i="n2">OTC деск</a>
+    <a onclick="go('how')" data-i="n3">Как работает</a>
+    <a onclick="go('about')" data-i="n4">О нас</a>
+  </div>
+  <div class="nav-r">
+    <div class="ldrop" id="ldrop">
+      <div class="lcur" id="lcur" onclick="togL()">
+        <div class="flag-rect"><img id="lf" src="https://flagcdn.com/w40/ru.png" alt="RU"></div>
+        <span id="lc">RU</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="lmenu" id="lmenu">
+        <div class="lopt on" onclick="setL('ru')"><div class="flag-rect"><img src="https://flagcdn.com/w40/ru.png" alt="RU"></div>Русский</div>
+        <div class="lopt" onclick="setL('en')"><div class="flag-rect"><img src="https://flagcdn.com/w40/gb.png" alt="EN"></div>English</div>
+        <div class="lopt" onclick="setL('es')"><div class="flag-rect"><img src="https://flagcdn.com/w40/es.png" alt="ES"></div>Español</div>
+      </div>
+    </div>
+    <button class="ncta" onclick="go('otc')" data-i="ncta">Оставить заявку</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page" id="page-home">
+
+<div style="max-width:900px;margin:0 auto">
+  <div class="hero rv">
+    <div class="eyebrow"><div class="ed"></div><span class="et" data-i="badge">ЛИЦЕНЗИРОВАННЫЙ OTC ДЕСК</span></div>
+    <h1><span data-i="h1a">Конвертация капитала<br>для </span><span class="ac" data-i="h1b">крупного бизнеса</span></h1>
+    <p class="hero-sub" data-i="hsub">USDT ↔ USD, EUR, AED и другие валюты. Персональный менеджер, AML верификация и юридический договор на каждую сделку.</p>
+    <div class="hero-btns">
+      <button class="bp" onclick="go('otc')" data-i="hcta1">Начать обмен</button>
+      <button class="bg" onclick="go('how')" data-i="hcta2">Как это работает</button>
+    </div>
+  </div>
+</div>
+
+<div class="rates-sec rv d1">
+  <div class="rates-in">
+    <div class="rates-l">
+      <div class="sl" data-i="rl">КУРСЫ USDT</div>
+      <h3 data-i="rh">Актуальные курсы<br>в реальном времени</h3>
+      <p data-i="rp">Обновляются каждые 60 секунд. Минимальная сделка — $15 000. Курс фиксируется на 20 минут.</p>
+      <button class="bg-sm" onclick="go('otc')" data-i="rcta">Оставить заявку</button>
+    </div>
+    <div class="rates-r">
+      <div class="wh">
+        <span class="wlbl" data-i="wl">НАПРАВЛЕНИЕ</span>
+        <div class="wlive"><div class="ldot"></div><span data-i="wlv">LIVE</span></div>
+      </div>
+      <div class="wtabs">
+        <button class="wtab on" data-i="wbuy">Покупка USDT</button>
+        <button class="wtab" data-i="wsell">Продажа USDT</button>
+      </div>
+      <div class="rg">
+        <div class="rc"><div class="rcfl"><img src="https://flagcdn.com/w40/us.png" style="width:28px;height:20px;border-radius:3px;object-fit:cover"></div><div class="rcn">USD</div><div class="rcs" data-i="r1">Доллар США</div><div class="rcv">0.9984</div><div class="rcc">+0.02%</div></div>
+        <div class="rc"><div class="rcfl"><img src="https://flagcdn.com/w40/eu.png" style="width:28px;height:20px;border-radius:3px;object-fit:cover"></div><div class="rcn">EUR</div><div class="rcs" data-i="r2">Евро</div><div class="rcv">0.9201</div><div class="rcc">+0.08%</div></div>
+        <div class="rc"><div class="rcfl"><img src="https://flagcdn.com/w40/ae.png" style="width:28px;height:20px;border-radius:3px;object-fit:cover"></div><div class="rcn">AED</div><div class="rcs" data-i="r3">Дирхам ОАЭ</div><div class="rcv">3.6698</div><div class="rcc dn">−0.01%</div></div>
+        <div class="rc"><div class="rcfl"><img src="https://flagcdn.com/w40/kz.png" style="width:28px;height:20px;border-radius:3px;object-fit:cover"></div><div class="rcn">KZT</div><div class="rcs" data-i="r4">Тенге</div><div class="rcv">478.20</div><div class="rcc">+0.14%</div></div>
+        <div class="rc"><div class="rcfl"><img src="https://flagcdn.com/w40/ru.png" style="width:28px;height:20px;border-radius:3px;object-fit:cover"></div><div class="rcn">RUB</div><div class="rcs" data-i="r5">Рубль</div><div class="rcv">90.45</div><div class="rcc">+0.31%</div></div>
+        <div class="rc"><div class="rcfl"><img src="https://flagcdn.com/w40/gb.png" style="width:28px;height:20px;border-radius:3px;object-fit:cover"></div><div class="rcn">GBP</div><div class="rcs" data-i="r6">Фунт</div><div class="rcv">0.7891</div><div class="rcc dn">−0.05%</div></div>
+      </div>
+      <div class="rnote" data-i="rnote">Курсы обновляются в реальном времени. Итоговый курс фиксируется при подтверждении.</div>
+    </div>
+  </div>
+</div>
+
+<div class="si">
+  <div class="rv"><div class="sl" data-i="hssl">УСЛУГИ</div><h2 data-i="hssh">Решения для каждого клиента</h2></div>
+  <div class="rv d1"><p data-i="hsp">От разовых конвертаций до регулярных корпоративных платежей — у каждого клиента свои условия и свой менеджер.</p><span class="bg-sm" onclick="go('services')" style="cursor:pointer" data-i="more">Все услуги →</span></div>
+</div>
+<div class="cards">
+  <div class="card rv d1"><div class="ca" onclick="go('services')"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5l7-7M3 2.5h6.5v6.5" stroke="var(--t1)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ctag" data-i="s1t">ИМПОРТЁРАМ</div><h3 data-i="s1h">Платежи поставщикам</h3><p data-i="s1p">Оплата партнёров в Китае, Турции, ОАЭ через USDT. Без задержек SWIFT.</p><ul class="cfl"><li><span class="cfd"></span><span data-i="s1f1">Инвойс для бухгалтерии</span></li><li><span class="cfd"></span><span data-i="s1f2">50+ стран получения</span></li><li><span class="cfd"></span><span data-i="s1f3">Юридический договор</span></li></ul></div>
+  <div class="card rv d2"><div class="ca" onclick="go('otc')"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5l7-7M3 2.5h6.5v6.5" stroke="var(--t1)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ctag" data-i="s2t">OTC ДЕСК</div><h3 data-i="s2h">Крупные сделки</h3><p data-i="s2p">Персональный брокер, фиксация курса, сделки от $15 000.</p><ul class="cfl"><li><span class="cfd"></span><span data-i="s2f1">Менеджер 24/7</span></li><li><span class="cfd"></span><span data-i="s2f2">Курс фиксируется 20 мин</span></li><li><span class="cfd"></span><span data-i="s2f3">Договор на каждую сделку</span></li></ul></div>
+  <div class="card rv d3"><div class="ca" onclick="go('services')"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5l7-7M3 2.5h6.5v6.5" stroke="var(--t1)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ctag" data-i="s3t">ЧАСТНЫМ</div><h3 data-i="s3h">Для физлиц</h3><p data-i="s3p">Конвертация сбережений и переводы за рубеж с полной верификацией.</p><ul class="cfl"><li><span class="cfd"></span><span data-i="s3f1">KYC за 5 минут</span></li><li><span class="cfd"></span><span data-i="s3f2">Выплата на зарубежный счёт</span></li><li><span class="cfd"></span><span data-i="s3f3">Полная конфиденциальность</span></li></ul></div>
+</div>
+
+<div class="cw"><div class="ci rv"><div><h2 data-i="ctah">Готовы к первой сделке?</h2><p data-i="ctap">Напишите нам — объясним условия. Первая консультация бесплатна.</p></div><div class="cbtns"><button class="tgb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="m22 2-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i="ctab1">Telegram</span></button><button class="bg" onclick="go('otc')" data-i="ctab2">Оставить заявку</button></div></div></div>
+
+<div class="foot"><div class="fb" style="flex:1;min-width:160px"><div class="fl">casmo<span>.</span></div><p data-i="ftag">OTC Exchange · Лицензированный брокер</p></div><div class="fcol"><h5 data-i="fc1">УСЛУГИ</h5><a onclick="go('services')" data-i="ff1">OTC деск</a><a onclick="go('services')" data-i="ff2">Импортёрам</a><a onclick="go('services')" data-i="ff3">Частным клиентам</a></div><div class="fcol"><h5 data-i="fc2">КОМПАНИЯ</h5><a onclick="go('about')" data-i="ff4">О нас</a><a onclick="go('about')" data-i="ff5">AML политика</a><a onclick="go('about')" data-i="ff6">Условия</a></div><div class="fcol"><h5 data-i="fc3">КОНТАКТЫ</h5><a>Telegram</a><a>support@casmo.exchange</a></div></div>
+<div class="fbtm"><span data-i="fcopy">© 2026 Casmo Exchange. Все права защищены.</span><span data-i="flic">Лицензированный финансовый сервис</span></div>
+</div>
+
+<!-- SERVICES -->
+<div class="page" id="page-services">
+<div class="si"><div class="rv"><div class="sl" data-i="sv_l">УСЛУГИ</div><h2 data-i="sv_h">Решения под каждую задачу</h2></div><div class="rv d1"><p data-i="sv_p">От разовых конвертаций до регулярных корпоративных платежей — у каждого сегмента свои условия.</p></div></div>
+<div class="cards">
+  <div class="card rv"><div class="ctag" data-i="sv1t">ИМПОРТЁРАМ</div><h3 data-i="sv1h">Платежи поставщикам</h3><p data-i="sv1p">Компании торгующие с Китаем, Турцией, ОАЭ. SWIFT закрыт — решаем через USDT.</p><ul class="cfl"><li><span class="cfd"></span><span data-i="sv1f1">Инвойс для бухгалтерии</span></li><li><span class="cfd"></span><span data-i="sv1f2">Регулярные платежи по SLA</span></li><li><span class="cfd"></span><span data-i="sv1f3">50+ стран получения</span></li><li><span class="cfd"></span><span data-i="sv1f4">Юридический договор</span></li><li><span class="cfd"></span><span data-i="sv1f5">Срочный режим 15–30 мин</span></li></ul><button class="bp" style="width:100%;margin-top:18px" onclick="go('otc')" data-i="sv_cta">Оставить заявку</button></div>
+  <div class="card rv d1"><div class="ctag" data-i="sv2t">OTC ДЕСК</div><h3 data-i="sv2h">Крупные сделки от $15 000</h3><p data-i="sv2p">Персональный брокер, фиксация курса. Для корпоративных казначеев и инвесторов.</p><ul class="cfl"><li><span class="cfd"></span><span data-i="sv2f1">Персональный менеджер 24/7</span></li><li><span class="cfd"></span><span data-i="sv2f2">Курс фиксируется 20 мин</span></li><li><span class="cfd"></span><span data-i="sv2f3">USDT ↔ USD, EUR, AED, KZT, RUB</span></li><li><span class="cfd"></span><span data-i="sv2f4">Договор от $20 000</span></li><li><span class="cfd"></span><span data-i="sv2f5">AML-верификация транзакции</span></li></ul><button class="bp" style="width:100%;margin-top:18px" onclick="go('otc')" data-i="sv_cta">Оставить заявку</button></div>
+  <div class="card rv d2"><div class="ctag" data-i="sv3t">ЧАСТНЫМ</div><h3 data-i="sv3h">Для физических лиц</h3><p data-i="sv3p">Эмигранты, инвесторы, владельцы недвижимости. USDT с конвертацией в нужную валюту.</p><ul class="cfl"><li><span class="cfd"></span><span data-i="sv3f1">От $15 000</span></li><li><span class="cfd"></span><span data-i="sv3f2">KYC за 5 минут</span></li><li><span class="cfd"></span><span data-i="sv3f3">Выплата на зарубежный счёт</span></li><li><span class="cfd"></span><span data-i="sv3f4">USD, EUR, AED, GBP, KZT, RUB</span></li><li><span class="cfd"></span><span data-i="sv3f5">Полная конфиденциальность</span></li></ul><button class="bp" style="width:100%;margin-top:18px" onclick="go('otc')" data-i="sv_cta">Оставить заявку</button></div>
+</div>
+<div class="cw"><div class="ci rv"><div><h2 data-i="sv_ctah">Не нашли свой случай?</h2><p data-i="sv_ctap">Напишите нам — работаем с нестандартными запросами.</p></div><div class="cbtns"><button class="tgb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="m22 2-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i="ctab1">Telegram</span></button></div></div></div>
+</div>
+
+<!-- OTC -->
+<div class="page" id="page-otc">
+<div class="si"><div class="rv"><div class="sl" data-i="ot_l">OTC ДЕСК</div><h2 data-i="ot_h">Для крупных объёмов</h2></div><div class="rv d1"><p data-i="ot_p">Персональный брокер, юридический договор и AML-верификация на каждой сделке от $15 000.</p></div></div>
+<div class="fg">
+  <div class="fc rv d1"><div class="fci"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 1.5L2.25 4.5v4.5c0 3.9 2.925 7.415 6.75 8 3.825-.585 6.75-4.11 6.75-8V4.5L9 1.5z" stroke="var(--a)" stroke-width="1.4" stroke-linecap="round"/><path d="M6.75 9l1.5 1.5 3-3" stroke="var(--a)" stroke-width="1.4" stroke-linecap="round"/></svg></div><div><h4 data-i="of1h">Юридический договор</h4><p data-i="of1p">На каждую сделку от $20 000. Чёткие условия, юридическая защита обеих сторон.</p></div></div>
+  <div class="fc rv d2"><div class="fci"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="var(--a)" stroke-width="1.4"/><path d="M9 5.25v3.75l2.25 2.25" stroke="var(--a)" stroke-width="1.4" stroke-linecap="round"/></svg></div><div><h4 data-i="of2h">Скорость как стандарт</h4><p data-i="of2p">30–90 минут стандарт. Срочный режим — 15–30 минут. 7 дней в неделю.</p></div></div>
+  <div class="fc rv d1"><div class="fci"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="var(--a)" stroke-width="1.4"/><path d="M1.5 9h15M9 1.5c-1.875 2.25-3 4.75-3 7.5s1.125 5.25 3 7.5M9 1.5c1.875 2.25 3 4.75 3 7.5s-1.125 5.25-3 7.5" stroke="var(--a)" stroke-width="1.4" stroke-linecap="round"/></svg></div><div><h4 data-i="of3h">Глобальные выплаты</h4><p data-i="of3p">SWIFT и SEPA в 50+ странах. Корпоративные и личные счета. Все основные валюты.</p></div></div>
+  <div class="fc rv d2"><div class="fci"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 1.5L2.25 4.5v4.5c0 3.9 2.925 7.415 6.75 8 3.825-.585 6.75-4.11 6.75-8V4.5L9 1.5z" stroke="var(--a)" stroke-width="1.4"/><circle cx="9" cy="9" r="2" stroke="var(--a)" stroke-width="1.4"/></svg></div><div><h4 data-i="of4h">AML на каждой транзакции</h4><p data-i="of4p">Btrace-скоринг каждого входящего кошелька. Только чистые средства.</p></div></div>
+</div>
+<div class="fwrap"><div class="fbox rv">
+  <div class="ft" data-i="rft">Оставить заявку</div>
+  <div class="fsub" data-i="rfs">Менеджер свяжется в течение 15 минут</div>
+  <div class="fi2"><div class="fi"><label data-i="rfl1">СУММА (USD)</label><input type="number" placeholder="50 000"></div><div class="fi"><label data-i="rfl2">НАПРАВЛЕНИЕ</label><select><option>USDT → USD</option><option>USDT → EUR</option><option>USDT → AED</option><option>USDT → KZT</option><option>USDT → RUB</option><option>USD → USDT</option></select></div></div>
+  <div class="fi"><label data-i="rfl3">TELEGRAM ИЛИ EMAIL</label><input type="text" placeholder="@username"></div>
+  <div class="fi"><label data-i="rfl4">КОММЕНТАРИЙ</label><input type="text" placeholder="Доп. информация"></div>
+  <button class="fbtn" data-i="rfbtn">Отправить заявку</button>
+  <div class="fleg" data-i="rfleg">Все данные защищены · Не передаём третьим лицам</div>
+</div></div>
+</div>
+
+<!-- HOW -->
+<div class="page" id="page-how">
+<div class="si"><div class="rv"><div class="sl" data-i="hw_l">КАК ЭТО РАБОТАЕТ</div><h2 data-i="hw_h">Четыре шага до получения средств</h2></div><div class="rv d1"><p data-i="hw_p">Персональный менеджер ведёт вас от первого сообщения до получения средств без очередей.</p></div></div>
+<div class="tlw">
+  <div class="ts rv"><div class="tn">01</div><div class="tc"><div class="tctag" data-i="hw1t">НАЧАЛО</div><h3 data-i="hw1h">Оставьте заявку</h3><p data-i="hw1p">Напишите в Telegram или заполните форму. Укажите сумму и направление. Менеджер свяжется в течение 15 минут.</p></div></div>
+  <div class="ts rv d1"><div class="tn">02</div><div class="tc"><div class="tctag" data-i="hw2t">ВЕРИФИКАЦИЯ</div><h3 data-i="hw2h">KYC и AML проверка</h3><p data-i="hw2p">Идентификация через Sumsub — паспорт и селфи за 3–5 минут. AML-скоринг кошелька через Btrace. Данные защищены.</p></div></div>
+  <div class="ts rv d1"><div class="tn">03</div><div class="tc"><div class="tctag" data-i="hw3t">ФИКСАЦИЯ КУРСА</div><h3 data-i="hw3h">Котировка и договор</h3><p data-i="hw3p">Менеджер фиксирует курс на 20 минут. Для сделок от $20 000 подписываем договор. Вы подтверждаете условия и отправляете USDT.</p></div></div>
+  <div class="ts rv d1"><div class="tn">04</div><div class="tc"><div class="tctag" data-i="hw4t">ЗАВЕРШЕНИЕ</div><h3 data-i="hw4h">Получение средств</h3><p data-i="hw4p">После подтверждения получения USDT средства отправляются через SWIFT или SEPA. Стандарт — 30–90 минут.</p></div></div>
+</div>
+<div class="cw"><div class="ci rv"><div><h2 data-i="hw_ctah">Готовы начать?</h2><p data-i="hw_ctap">Первая сделка с персональным менеджером. Без скрытых комиссий.</p></div><div class="cbtns"><button class="bp" onclick="go('otc')" data-i="hcta1">Оставить заявку</button></div></div></div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+<div class="si"><div class="rv"><div class="sl" data-i="ab_l">О НАС</div><h2 data-i="ab_h">Построено на доверии</h2></div><div class="rv d1"><p data-i="ab_p">Casmo — OTC деск для крупного бизнеса. Партнёр по конвертации капитала с персональным подходом.</p></div></div>
+<div class="ag">
+  <div class="acard rv d1"><h4 data-i="ab1h">Лицензирование</h4><p data-i="ab1p">Работаем в рамках лицензированных юрисдикций с полной регуляторной прозрачностью. Каждая операция соответствует требованиям AML/KYC.</p></div>
+  <div class="acard rv d2"><h4 data-i="ab2h">KYC и AML</h4><p data-i="ab2p">Биометрическая верификация через Sumsub — паспорт и liveness detection. AML-скоринг каждой транзакции через Btrace.</p></div>
+  <div class="acard rv d1"><h4 data-i="ab3h">Скорость</h4><p data-i="ab3p">30–90 минут от заявки до получения средств. Срочный режим — 15–30 минут. 7 дней в неделю, 16 часов в сутки.</p></div>
+  <div class="acard rv d2"><h4 data-i="ab4h">Персональный подход</h4><p data-i="ab4p">Выделенный менеджер для каждого клиента. Изучаем особенности бизнеса и предлагаем решения под конкретные задачи.</p></div>
+</div>
+<div class="cw"><div class="ci rv"><div><h2 data-i="ab_ctah">Начнём работу?</h2><p data-i="ab_ctap">Напишите нам. Первая консультация бесплатна.</p></div><div class="cbtns"><button class="tgb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="m22 2-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i="ctab1">Telegram</span></button><button class="bg" onclick="go('otc')" data-i="ctab2">Оставить заявку</button></div></div></div>
+</div>
+
+<script>
+document.querySelectorAll('.wtab').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.wtab').forEach(x=>x.classList.remove('on'));b.classList.add('on')})});
+
+function togL(){const m=document.getElementById('lmenu'),c=document.getElementById('lcur');const o=m.classList.toggle('open');c.classList.toggle('open',o)}
+document.addEventListener('click',e=>{if(!document.getElementById('ldrop').contains(e.target)){document.getElementById('lmenu').classList.remove('open');document.getElementById('lcur').classList.remove('open')}});
+
+const FMAP={ru:"ru",en:"gb",es:"es"},LC={ru:"RU",en:"EN",es:"ES"};
+const T={
+ru:{n1:'Услуги',n2:'OTC деск',n3:'Как работает',n4:'О нас',ncta:'Оставить заявку',badge:'ЛИЦЕНЗИРОВАННЫЙ OTC ДЕСК',h1a:'Конвертация капитала<br>для ',h1b:'крупного бизнеса',hsub:'USDT ↔ USD, EUR, AED и другие валюты. Персональный менеджер, AML верификация и юридический договор на каждую сделку.',hcta1:'Начать обмен',hcta2:'Как это работает',rl:'КУРСЫ USDT',rh:'Актуальные курсы<br>в реальном времени',rp:'Обновляются каждые 60 секунд. Минимальная сделка — $15 000.',rcta:'Оставить заявку',wl:'НАПРАВЛЕНИЕ',wlv:'LIVE',wbuy:'Покупка USDT',wsell:'Продажа USDT',r1:'Доллар США',r2:'Евро',r3:'Дирхам ОАЭ',r4:'Тенге',r5:'Рубль',r6:'Фунт',rnote:'Курсы обновляются в реальном времени. Итоговый курс фиксируется при подтверждении.',hssl:'УСЛУГИ',hssh:'Решения для каждого клиента',hsp:'От разовых конвертаций до регулярных корпоративных платежей.',more:'Все услуги →',s1t:'ИМПОРТЁРАМ',s1h:'Платежи поставщикам',s1p:'Оплата партнёров в Китае, Турции, ОАЭ через USDT.',s1f1:'Инвойс для бухгалтерии',s1f2:'50+ стран получения',s1f3:'Юридический договор',s2t:'OTC ДЕСК',s2h:'Крупные сделки',s2p:'Персональный брокер, фиксация курса, сделки от $15 000.',s2f1:'Менеджер 24/7',s2f2:'Курс фиксируется 20 мин',s2f3:'Договор на каждую сделку',s3t:'ЧАСТНЫМ',s3h:'Для физлиц',s3p:'Конвертация сбережений и переводы за рубеж.',s3f1:'KYC за 5 минут',s3f2:'Выплата на зарубежный счёт',s3f3:'Полная конфиденциальность',ctah:'Готовы к первой сделке?',ctap:'Напишите нам — объясним условия. Первая консультация бесплатна.',ctab1:'Telegram',ctab2:'Оставить заявку',ftag:'OTC Exchange · Лицензированный брокер',fc1:'УСЛУГИ',fc2:'КОМПАНИЯ',fc3:'КОНТАКТЫ',ff1:'OTC деск',ff2:'Импортёрам',ff3:'Частным клиентам',ff4:'О нас',ff5:'AML политика',ff6:'Условия',fcopy:'© 2026 Casmo Exchange. Все права защищены.',flic:'Лицензированный финансовый сервис',sv_l:'УСЛУГИ',sv_h:'Решения под каждую задачу',sv_p:'От разовых конвертаций до регулярных корпоративных платежей.',sv1t:'ИМПОРТЁРАМ',sv1h:'Платежи поставщикам',sv1p:'Компании торгующие с Китаем, Турцией, ОАЭ.',sv1f1:'Инвойс для бухгалтерии',sv1f2:'Регулярные платежи по SLA',sv1f3:'50+ стран получения',sv1f4:'Юридический договор',sv1f5:'Срочный режим 15–30 мин',sv2t:'OTC ДЕСК',sv2h:'Крупные сделки от $15 000',sv2p:'Персональный брокер, фиксация курса.',sv2f1:'Персональный менеджер 24/7',sv2f2:'Курс фиксируется 20 мин',sv2f3:'USDT ↔ USD, EUR, AED, KZT, RUB',sv2f4:'Договор от $20 000',sv2f5:'AML-верификация транзакции',sv3t:'ЧАСТНЫМ',sv3h:'Для физических лиц',sv3p:'Эмигранты, инвесторы, владельцы недвижимости.',sv3f1:'От $15 000',sv3f2:'KYC за 5 минут',sv3f3:'Выплата на зарубежный счёт',sv3f4:'USD, EUR, AED, GBP, KZT, RUB',sv3f5:'Полная конфиденциальность',sv_cta:'Оставить заявку',sv_ctah:'Не нашли свой случай?',sv_ctap:'Напишите нам — работаем с нестандартными запросами.',ot_l:'OTC ДЕСК',ot_h:'Для крупных объёмов',ot_p:'Персональный брокер, юридический договор и AML-верификация на каждой сделке от $15 000.',of1h:'Юридический договор',of1p:'На каждую сделку от $20 000. Чёткие условия, юридическая защита обеих сторон.',of2h:'Скорость как стандарт',of2p:'30–90 минут стандарт. Срочный режим — 15–30 минут. 7 дней в неделю.',of3h:'Глобальные выплаты',of3p:'SWIFT и SEPA в 50+ странах. Корпоративные и личные счета.',of4h:'AML на каждой транзакции',of4p:'Btrace-скоринг каждого кошелька. Только чистые средства.',rft:'Оставить заявку',rfs:'Менеджер свяжется в течение 15 минут',rfl1:'СУММА (USD)',rfl2:'НАПРАВЛЕНИЕ',rfl3:'TELEGRAM ИЛИ EMAIL',rfl4:'КОММЕНТАРИЙ',rfbtn:'Отправить заявку',rfleg:'Все данные защищены · Не передаём третьим лицам',hw_l:'КАК ЭТО РАБОТАЕТ',hw_h:'Четыре шага до получения средств',hw_p:'Персональный менеджер ведёт вас от первого сообщения до получения средств.',hw1t:'НАЧАЛО',hw1h:'Оставьте заявку',hw1p:'Напишите в Telegram или заполните форму. Менеджер свяжется в течение 15 минут.',hw2t:'ВЕРИФИКАЦИЯ',hw2h:'KYC и AML проверка',hw2p:'Идентификация через Sumsub — паспорт и селфи за 3–5 минут. AML-скоринг через Btrace.',hw3t:'ФИКСАЦИЯ КУРСА',hw3h:'Котировка и договор',hw3p:'Менеджер фиксирует курс на 20 минут. Для сделок от $20 000 подписываем договор.',hw4t:'ЗАВЕРШЕНИЕ',hw4h:'Получение средств',hw4p:'Средства через SWIFT или SEPA. Стандарт — 30–90 минут. Срочный — 15–30 минут.',hw_ctah:'Готовы начать?',hw_ctap:'Первая сделка с персональным менеджером. Без скрытых комиссий.',ab_l:'О НАС',ab_h:'Построено на доверии',ab_p:'Casmo — OTC деск для крупного бизнеса. Партнёр по конвертации капитала.',ab1h:'Лицензирование',ab1p:'Работаем в рамках лицензированных юрисдикций с полной регуляторной прозрачностью.',ab2h:'KYC и AML',ab2p:'Биометрическая верификация Sumsub. AML-скоринг каждой транзакции через Btrace.',ab3h:'Скорость',ab3p:'30–90 минут от заявки до получения. Срочный режим — 15–30 минут. 7 дней.',ab4h:'Персональный подход',ab4p:'Выделенный менеджер для каждого. Решения под конкретные задачи бизнеса.',ab_ctah:'Начнём работу?',ab_ctap:'Напишите нам. Первая консультация бесплатна.'},
+en:{n1:'Services',n2:'OTC Desk',n3:'How it works',n4:'About',ncta:'Get Started',badge:'LICENSED OTC DESK',h1a:'Capital conversion<br>for ',h1b:'enterprise clients',hsub:'USDT ↔ USD, EUR, AED and more. Dedicated manager, AML verification and legal agreement on every deal.',hcta1:'Start Exchange',hcta2:'How it works',rl:'USDT RATES',rh:'Live rates<br>in real time',rp:'Updated every 60 seconds. Minimum deal — $15,000.',rcta:'Leave a Request',wl:'DIRECTION',wlv:'LIVE',wbuy:'Buy USDT',wsell:'Sell USDT',r1:'US Dollar',r2:'Euro',r3:'UAE Dirham',r4:'Kazakhstani Tenge',r5:'Russian Ruble',r6:'British Pound',rnote:'Rates update in real time. Final rate locked at deal confirmation.',hssl:'SERVICES',hssh:'Solutions for every client',hsp:'From one-time conversions to regular corporate payments.',more:'All services →',s1t:'IMPORTERS',s1h:'Supplier Payments',s1p:'Pay suppliers in China, Turkey, UAE via USDT. No SWIFT delays.',s1f1:'Invoice for accounting',s1f2:'50+ recipient countries',s1f3:'Legal agreement',s2t:'OTC DESK',s2h:'Large Transactions',s2p:'Personal broker, fixed rate, deals from $15,000.',s2f1:'Manager 24/7',s2f2:'Rate locked 20 min',s2f3:'Agreement per deal',s3t:'PRIVATE',s3h:'For Individuals',s3p:'Savings conversion and overseas transfers.',s3f1:'KYC in 5 minutes',s3f2:'Payout to foreign account',s3f3:'Full confidentiality',ctah:'Ready for your first deal?',ctap:'Message us — we will explain the terms. First consultation is free.',ctab1:'Telegram',ctab2:'Leave a Request',ftag:'OTC Exchange · Licensed Broker',fc1:'SERVICES',fc2:'COMPANY',fc3:'CONTACTS',ff1:'OTC Desk',ff2:'For Importers',ff3:'For Individuals',ff4:'About Us',ff5:'AML Policy',ff6:'Terms',fcopy:'© 2026 Casmo Exchange. All rights reserved.',flic:'Licensed Financial Service',sv_l:'SERVICES',sv_h:'Solutions for every need',sv_p:'From one-time conversions to regular corporate payments.',sv1t:'IMPORTERS',sv1h:'Supplier Payments',sv1p:'Companies trading with China, Turkey, UAE.',sv1f1:'Invoice for accounting',sv1f2:'Regular payments on SLA',sv1f3:'50+ countries',sv1f4:'Legal agreement',sv1f5:'Express 15–30 min',sv2t:'OTC DESK',sv2h:'Large Transactions from $15,000',sv2p:'Personal broker, fixed rate.',sv2f1:'Dedicated manager 24/7',sv2f2:'Rate locked 20 min',sv2f3:'USDT ↔ USD, EUR, AED, KZT, RUB',sv2f4:'Agreement from $20,000',sv2f5:'AML verification',sv3t:'PRIVATE',sv3h:'For Individuals',sv3p:'Expats, investors, overseas property owners.',sv3f1:'From $15,000',sv3f2:'KYC in 5 minutes',sv3f3:'Payout to foreign account',sv3f4:'USD, EUR, AED, GBP, KZT, RUB',sv3f5:'Full confidentiality',sv_cta:'Leave a Request',sv_ctah:'Did not find your case?',sv_ctap:'Message us — we work with non-standard requests.',ot_l:'OTC DESK',ot_h:'For large volumes',ot_p:'Personal broker, legal agreement and AML on every deal from $15,000.',of1h:'Legal agreement',of1p:'For every deal from $20,000. Clear terms, legal protection.',of2h:'Speed as standard',of2p:'30–90 minutes standard. Express — 15–30 min. 7 days.',of3h:'Global payouts',of3p:'SWIFT and SEPA to 50+ countries. All major currencies.',of4h:'AML on every transaction',of4p:'Btrace scoring of every wallet. Clean funds only.',rft:'Leave a Request',rfs:'Manager will contact you within 15 minutes',rfl1:'AMOUNT (USD)',rfl2:'DIRECTION',rfl3:'TELEGRAM OR EMAIL',rfl4:'COMMENT',rfbtn:'Submit Request',rfleg:'All data protected · Not shared with third parties',hw_l:'HOW IT WORKS',hw_h:'Four steps to receiving funds',hw_p:'Your dedicated manager guides you from first message to funds received.',hw1t:'START',hw1h:'Leave a Request',hw1p:'Message us on Telegram or fill out the form. Manager responds within 15 minutes.',hw2t:'VERIFICATION',hw2h:'KYC and AML Check',hw2p:'Identification via Sumsub — passport and selfie in 3–5 minutes.',hw3t:'RATE LOCK',hw3h:'Quote and Agreement',hw3p:'Manager locks rate for 20 minutes. For deals from $20,000 we sign an agreement.',hw4t:'COMPLETION',hw4h:'Receive Funds',hw4p:'Funds sent via SWIFT or SEPA. Standard — 30–90 minutes. Express — 15–30 minutes.',hw_ctah:'Ready to start?',hw_ctap:'First deal with a personal manager. No hidden fees.',ab_l:'ABOUT US',ab_h:'Built on trust',ab_p:'Casmo is an OTC desk for large businesses. A capital conversion partner.',ab1h:'Licensed',ab1p:'Operating under licensed jurisdictions with full regulatory transparency.',ab2h:'KYC & AML',ab2p:'Biometric verification via Sumsub. AML scoring of every transaction.',ab3h:'Speed',ab3p:'30–90 minutes from request to receipt. Express — 15–30 min. 7 days.',ab4h:'Personal service',ab4p:'Dedicated manager for every client. Solutions tailored to your business.',ab_ctah:'Ready to start?',ab_ctap:'Message us. First consultation is free.'},
+es:{n1:'Servicios',n2:'Desk OTC',n3:'Cómo funciona',n4:'Nosotros',ncta:'Solicitar',badge:'DESK OTC LICENCIADO',h1a:'Conversión de capital<br>para ',h1b:'grandes empresas',hsub:'USDT ↔ USD, EUR, AED y más. Gestor personal, verificación AML y acuerdo legal en cada operación.',hcta1:'Iniciar cambio',hcta2:'Cómo funciona',rl:'TASAS USDT',rh:'Tasas en<br>tiempo real',rp:'Actualizadas cada 60 segundos. Operación mínima — $15,000.',rcta:'Dejar solicitud',wl:'DIRECCIÓN',wlv:'EN VIVO',wbuy:'Compra USDT',wsell:'Venta USDT',r1:'Dólar',r2:'Euro',r3:'Dírham EAU',r4:'Tenge',r5:'Rublo',r6:'Libra',rnote:'Tasas en tiempo real. El tipo final se fija al confirmar.',hssl:'SERVICIOS',hssh:'Soluciones para cada cliente',hsp:'Desde conversiones puntuales hasta pagos corporativos regulares.',more:'Todos los servicios →',s1t:'IMPORTADORES',s1h:'Pagos a proveedores',s1p:'Paga a proveedores en China, Turquía, EAU con USDT.',s1f1:'Factura para contabilidad',s1f2:'50+ países',s1f3:'Acuerdo legal',s2t:'DESK OTC',s2h:'Grandes operaciones',s2p:'Bróker personal, tipo fijo, operaciones desde $15,000.',s2f1:'Gestor 24/7',s2f2:'Tipo bloqueado 20 min',s2f3:'Acuerdo por operación',s3t:'PRIVADOS',s3h:'Para particulares',s3p:'Conversión de ahorros y transferencias al extranjero.',s3f1:'KYC en 5 minutos',s3f2:'Pago a cuenta exterior',s3f3:'Confidencialidad total',ctah:'¿Listo para tu primera operación?',ctap:'Escríbenos — explicaremos las condiciones. Primera consulta gratuita.',ctab1:'Telegram',ctab2:'Dejar solicitud',ftag:'OTC Exchange · Bróker Licenciado',fc1:'SERVICIOS',fc2:'EMPRESA',fc3:'CONTACTO',ff1:'Desk OTC',ff2:'Para importadores',ff3:'Para particulares',ff4:'Nosotros',ff5:'Política AML',ff6:'Términos',fcopy:'© 2026 Casmo Exchange. Todos los derechos reservados.',flic:'Servicio financiero licenciado',sv_l:'SERVICIOS',sv_h:'Soluciones para cada necesidad',sv_p:'Desde conversiones puntuales hasta pagos corporativos regulares.',sv1t:'IMPORTADORES',sv1h:'Pagos a proveedores',sv1p:'Empresas que comercian con China, Turquía, EAU.',sv1f1:'Factura para contabilidad',sv1f2:'Pagos con SLA',sv1f3:'50+ países',sv1f4:'Acuerdo legal',sv1f5:'Modo urgente 15–30 min',sv2t:'DESK OTC',sv2h:'Grandes operaciones desde $15,000',sv2p:'Bróker personal, tipo fijo.',sv2f1:'Gestor 24/7',sv2f2:'Tipo bloqueado 20 min',sv2f3:'USDT ↔ USD, EUR, AED, KZT, RUB',sv2f4:'Acuerdo desde $20,000',sv2f5:'Verificación AML',sv3t:'PRIVADOS',sv3h:'Para particulares',sv3p:'Expatriados, inversores, propietarios en el extranjero.',sv3f1:'Desde $15,000',sv3f2:'KYC en 5 minutos',sv3f3:'Pago a cuenta exterior',sv3f4:'USD, EUR, AED, GBP, KZT, RUB',sv3f5:'Confidencialidad total',sv_cta:'Dejar solicitud',sv_ctah:'¿No encontraste tu caso?',sv_ctap:'Escríbenos — trabajamos con solicitudes no estándar.',ot_l:'DESK OTC',ot_h:'Para grandes volúmenes',ot_p:'Bróker personal, acuerdo legal y AML en cada operación desde $15,000.',of1h:'Acuerdo legal',of1p:'Por cada operación desde $20,000. Condiciones claras, protección legal.',of2h:'Velocidad como estándar',of2p:'30–90 minutos estándar. Modo urgente — 15–30 min. 7 días.',of3h:'Pagos globales',of3p:'SWIFT y SEPA a 50+ países. Todas las divisas principales.',of4h:'AML en cada transacción',of4p:'Puntuación Btrace de cada billetera. Solo fondos limpios.',rft:'Dejar solicitud',rfs:'El gestor contactará en 15 minutos',rfl1:'IMPORTE (USD)',rfl2:'DIRECCIÓN',rfl3:'TELEGRAM O EMAIL',rfl4:'COMENTARIO',rfbtn:'Enviar solicitud',rfleg:'Datos protegidos · No compartimos con terceros',hw_l:'CÓMO FUNCIONA',hw_h:'Cuatro pasos para recibir fondos',hw_p:'Tu gestor dedicado te acompaña desde el primer mensaje.',hw1t:'INICIO',hw1h:'Deja una solicitud',hw1p:'Escríbenos por Telegram o rellena el formulario. El gestor responde en 15 minutos.',hw2t:'VERIFICACIÓN',hw2h:'KYC y comprobación AML',hw2p:'Identificación vía Sumsub — pasaporte y selfie en 3–5 minutos.',hw3t:'TIPO FIJO',hw3h:'Cotización y acuerdo',hw3p:'El gestor fija el tipo 20 minutos. Para operaciones desde $20,000 firmamos acuerdo.',hw4t:'FINALIZACIÓN',hw4h:'Recepción de fondos',hw4p:'Los fondos llegan por SWIFT o SEPA. Estándar — 30–90 min. Urgente — 15–30 min.',hw_ctah:'¿Listo para probar?',hw_ctap:'Primera operación con gestor personal. Sin comisiones ocultas.',ab_l:'NOSOTROS',ab_h:'Construido sobre la confianza',ab_p:'Casmo es un desk OTC para grandes empresas. Socio de conversión de capital.',ab1h:'Licenciado',ab1p:'Operamos bajo jurisdicciones con licencia y plena transparencia regulatoria.',ab2h:'KYC y AML',ab2p:'Verificación biométrica Sumsub. Puntuación AML de cada transacción.',ab3h:'Velocidad',ab3p:'30–90 minutos desde la solicitud. Urgente — 15–30 min. 7 días.',ab4h:'Atención personal',ab4p:'Gestor dedicado para cada cliente. Soluciones específicas para tu negocio.',ab_ctah:'¿Empezamos?',ab_ctap:'Escríbenos. Primera consulta gratuita.'}
+};
+
+let lang='ru';
+function setL(l){
+  lang=l;
+  document.getElementById('lmenu').classList.remove('open');
+  document.getElementById('lcur').classList.remove('open');
+  document.getElementById("lf").src=`https://flagcdn.com/w40/${FMAP[l]}.png`;
+  document.getElementById("lc").textContent=LC[l];
+  document.querySelectorAll('.lopt').forEach((o,i)=>{const ll=['ru','en','es'][i];o.classList.toggle('on',ll===l)});
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k=el.getAttribute('data-i');
+    if(!T[l]||T[l][k]===undefined)return;
+    const v=T[l][k];
+    if(['INPUT','BUTTON'].includes(el.tagName))el.textContent=v;
+    else el.innerHTML=v;
+  });
+  document.documentElement.lang=l;
+}
+
+let cur='home';
+function go(p){
+  if(p===cur)return;
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(()=>{
+    document.querySelectorAll('.page').forEach(el=>{el.classList.remove('on');el.style.display='none'});
+    const el=document.getElementById('page-'+p);
+    if(!el)return;
+    el.style.display='block';
+    requestAnimationFrame(()=>el.classList.add('on'));
+    cur=p;
+    document.querySelectorAll('#nl a').forEach(a=>{
+      const pp=a.getAttribute('onclick')?.match(/go\('(\w+)'\)/)?.[1];
+      a.classList.toggle('on',pp===p);
+    });
+    setTimeout(()=>el.querySelectorAll('.rv').forEach(r=>{r.classList.remove('in');obs.observe(r)}),60);
+    window.location.hash=p==='home'?'':p;
+  },40);
+}
+
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target)}});
+},{threshold:.06});
+
+(()=>{
+  const hash=window.location.hash.replace('#','');
+  const start=(hash&&document.getElementById('page-'+hash))?hash:'home';
+  const el=document.getElementById('page-'+start);
+  el.style.display='block';el.classList.add('on');cur=start;
+  document.querySelectorAll('#nl a').forEach(a=>{
+    const pp=a.getAttribute('onclick')?.match(/go\('(\w+)'\)/)?.[1];
+    a.classList.toggle('on',pp===start);
+  });
+  setTimeout(()=>el.querySelectorAll('.rv').forEach(r=>obs.observe(r)),120);
+  document.querySelectorAll('.lopt').forEach((o,i)=>{const ll=['ru','en','es'][i];o.classList.toggle('on',ll===lang)});
+})();
+</script>
+</body>
+</html>
