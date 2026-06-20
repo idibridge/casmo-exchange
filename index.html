@@ -963,19 +963,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
       <div class="ft" data-i="rft">Оставить заявку</div>
       <div class="fsub" data-i="rfs">Получите персональное предложение</div>
       <div class="fi2">
-        <div class="fi"><label data-i="rfl1">СУММА (USD)</label><input type="number" placeholder="50 000"></div>
+        <div class="fi"><label data-i="rfl1">СУММА (USD)</label><input id="lf-amount" type="number" placeholder="50 000"></div>
         <div class="fi"><label data-i="rfl2">НАПРАВЛЕНИЕ</label>
-          <select><option>USDT → USD</option><option>USDT → EUR</option><option>USDT → AED</option><option>USDT → KZT</option><option>USDT → RUB</option><option>USD → USDT</option><option>AML-проверка</option></select>
+          <select id="lf-direction"><option>USDT → USD</option><option>USDT → EUR</option><option>USDT → AED</option><option>USDT → KZT</option><option>USDT → RUB</option><option>USD → USDT</option><option>AML-проверка</option></select>
         </div>
       </div>
-      <div class="fi"><label data-i="rfl3">TELEGRAM ИЛИ EMAIL</label><input type="text" placeholder="@username"></div>
-      <div class="fi"><label data-i="rfl4">КОММЕНТАРИЙ</label><input type="text" placeholder="Расскажите о задаче"></div>
-      <button class="fbtn" data-i="rfbtn">Отправить заявку</button>
-      <div class="fleg" data-i="rfleg">Все данные защищены · NDA с каждым клиентом</div>
+      <div class="fi"><label data-i="rfl3">TELEGRAM ИЛИ EMAIL</label><input id="lf-contact" type="text" placeholder="@username"></div>
+      <div class="fi"><label data-i="rfl4">КОММЕНТАРИЙ</label><input id="lf-comment" type="text" placeholder="Расскажите о задаче"></div>
+      <input id="lf-hp" type="text" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+      <button class="fbtn" id="lf-submit" onclick="submitLead()" data-i="rfbtn">Отправить заявку</button>
+      <div class="fleg" id="lf-status" data-i="rfleg">Все данные защищены · NDA с каждым клиентом</div>
     </div>
   </div>
 </div>
 </div>
+
 
 
 
@@ -1423,6 +1425,48 @@ vf1h:'Bróker dedicado',vf1p:'Un especialista gestiona todas tus operaciones. Co
 vf2h:'Ejecución prioritaria',vf2p:'Las operaciones de gran volumen se ejecutan en modo prioritario por defecto. Abono rápido tras la confirmación.',
 vf3h:'Compliance ampliado',vf3p:'Paquete completo: contrato, factura, acto, informe AML y carta de origen de fondos para el banco.'}
 };
+
+const LEAD_MESSAGES = {
+  ru:{sending:'Отправляем…',ok:'Заявка отправлена! Менеджер свяжется с вами.',err:'Не получилось отправить. Напишите нам в Telegram @RokaLTD.',need:'Укажите Telegram или email для связи.'},
+  en:{sending:'Sending…',ok:'Request sent! Your manager will be in touch.',err:'Something went wrong. Please message us on Telegram @RokaLTD.',need:'Please enter your Telegram or email.'},
+  es:{sending:'Enviando…',ok:'¡Solicitud enviada! Tu gestor se pondrá en contacto.',err:'Algo falló. Escríbenos por Telegram @RokaLTD.',need:'Indica tu Telegram o email.'}
+};
+async function submitLead(){
+  const btn=document.getElementById('lf-submit');
+  const status=document.getElementById('lf-status');
+  const m=LEAD_MESSAGES[lang]||LEAD_MESSAGES.ru;
+  const contact=document.getElementById('lf-contact').value.trim();
+  if(!contact){
+    status.textContent=m.need;
+    status.style.color='var(--a)';
+    return;
+  }
+  const payload={
+    site:'casmo',
+    contact,
+    amount:document.getElementById('lf-amount').value.trim(),
+    direction:document.getElementById('lf-direction').value,
+    message:document.getElementById('lf-comment').value.trim(),
+    hp:document.getElementById('lf-hp').value
+  };
+  btn.disabled=true;
+  status.textContent=m.sending;
+  status.style.color='var(--t3)';
+  try{
+    const res=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok)throw new Error('bad_response');
+    status.textContent=m.ok;
+    status.style.color='var(--a)';
+    document.getElementById('lf-amount').value='';
+    document.getElementById('lf-contact').value='';
+    document.getElementById('lf-comment').value='';
+  }catch(e){
+    status.textContent=m.err;
+    status.style.color='var(--a)';
+  }finally{
+    btn.disabled=false;
+  }
+}
 
 let lang='ru';
 function setL(l){
