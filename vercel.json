@@ -1,0 +1,48 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/individuals",
+      "destination": "/"
+    },
+    {
+      "source": "/business",
+      "destination": "/"
+    },
+    {
+      "source": "/otc",
+      "destination": "/"
+    },
+    {
+      "source": "/how",
+      "destination": "/"
+    },
+    {
+      "source": "/about",
+      "destination": "/"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ]
+}
