@@ -41,6 +41,7 @@ export default async function handler(req, res) {
   // honeypot: скрытое поле, которое боты обычно заполняют, а люди — нет.
   // если оно непустое — молча отвечаем "успех" и ничего не отправляем.
   if (hp) {
+    console.warn('Honeypot triggered, lead dropped silently:', { site, contact });
     return res.status(200).json({ ok: true });
   }
 

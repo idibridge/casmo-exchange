@@ -121,18 +121,40 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
   min-height:100vh;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  text-align:center;
   padding:100px 60px 80px;
 }
 .hero::before{display:none}
 .hero>*{position:relative;z-index:1}
+.hero-banner-outer{width:100vw;margin-left:calc(50% - 50vw);display:flex;justify-content:center;overflow:hidden}
+.hero-home{padding:0;min-height:100vh}
+.hero-home .hero-banner-outer{position:absolute;inset:0;width:100%;margin:0}
+.hero-home .hero-banner{width:100%;height:100%;max-width:none}
+.hero-home .hero-banner img{width:100%;height:100%;object-fit:cover;object-position:center center}
+.hero-home .hero-banner-text{left:5.5%;width:37%}
+.hero-banner{position:relative;width:100%;max-width:2560px}
+.hero-banner img{width:100%;height:auto;display:block}
+.hero-banner-text{position:absolute;left:5%;top:50%;transform:translateY(-50%);width:33%;text-align:left;z-index:2}
 .eyebrow{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--ab);border-radius:6px;padding:6px 14px;margin-bottom:26px;background:var(--ah)}
 .ed{width:5px;height:5px;border-radius:50%;background:var(--a)}
 .et{font-size:11px;font-weight:700;color:var(--a);letter-spacing:.1em}
-.hero h1{font-size:clamp(38px,5.2vw,72px);font-weight:600;letter-spacing:-.02em;line-height:1.04;letter-spacing:-.04em;margin-bottom:20px;max-width:820px}
+.hero h1{font-size:min(3.3vw,80px);font-weight:600;letter-spacing:-.02em;line-height:1.06;letter-spacing:-.03em;margin-bottom:min(1.1vw,20px)}
 .ac{color:var(--a)}
-.hero-sub{font-size:17px;font-weight:300;color:var(--t2);line-height:1.7;max-width:500px;margin:0 auto 36px}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+.hero-sub{font-size:min(.95vw,21px);font-weight:300;color:var(--t2);line-height:1.55;margin:0 0 min(1.7vw,30px)}
+.hero-btns{display:flex;gap:min(.7vw,12px);justify-content:flex-start;flex-wrap:wrap;margin-bottom:0}
+.hero-btns .bp,.hero-btns .bg{padding:min(.95vw,17px) min(2vw,36px);font-size:min(.85vw,15px)}
+@media (max-width:1100px){
+  .hero-home{min-height:auto;padding:100px 24px 80px}
+  .hero-home .hero-banner-outer{position:static;inset:auto}
+  .hero-home .hero-banner{height:auto}
+  .hero-banner{aspect-ratio:auto;border-radius:0;overflow:visible}
+  .hero-banner img{display:none}
+  .hero-banner-text{position:static;transform:none;width:100%;text-align:center}
+  .hero-home .hero-banner-text{left:auto;width:100%}
+  .hero h1{font-size:clamp(32px,8vw,56px);margin-bottom:20px}
+  .hero-sub{font-size:17px;line-height:1.7;max-width:480px;margin:0 auto 36px}
+  .hero-btns{justify-content:center}
+  .hero-btns .bp,.hero-btns .bg{padding:15px 34px;font-size:14px}
+}
 .bp{padding:15px 34px;border-radius:var(--r);background:var(--a);color:#fff;font-size:14px;font-weight:500;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s;letter-spacing:.02em}
 .bp:hover{opacity:.85;transform:translateY(-1px)}
 .bg{padding:15px 34px;border-radius:var(--r);background:rgba(255,255,255,.06);color:var(--t1);font-size:14px;font-weight:400;border:1px solid rgba(255,255,255,.1);cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s}
@@ -141,7 +163,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
 .bg-sm:hover{background:rgba(255,255,255,.1)}
 
 /* SEGMENT CHOOSER */
-.seg-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:0 60px 80px;max-width:1100px;margin:0 auto}
+.seg-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:80px 60px 80px;max-width:1100px;margin:0 auto}
 .seg{background:linear-gradient(135deg,var(--s3) 0%,var(--s2) 100%);border:none;border-radius:var(--r2);padding:36px 32px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
 .seg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,rgba(91,104,232,.08) 0%,transparent 60%);opacity:0;transition:opacity .25s}
 .seg:hover{background:var(--s2);border-color:rgba(91,104,232,.3);transform:translateY(-2px)}
@@ -504,7 +526,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
 <!-- ═══ HOME ═══ -->
 <div class="page" id="page-home">
 
-<div class="hero rv">
+<div class="hero rv hero-home">
   <!-- VIDEO BG: Add src="your-space-video.mp4" to enable -->
   <div style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none">
     <video id="hero-video" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;opacity:0.18;display:none">
@@ -513,11 +535,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
     <!-- Subtle star field fallback -->
     <canvas id="stars-canvas" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4"></canvas>
   </div>
-  <h1><span data-i="h1a">Конвертация капитала<br></span><span class="ac" data-i="h1b">Платёжная инфраструктура</span></h1>
-  <p class="hero-sub" data-i="hsub">Конвертация, оплата поставщиков, AML-проверки и OTC B2B. Для бизнеса и частных клиентов.</p>
-  <div class="hero-btns">
-    <button class="bp" onclick="go('business')" data-i="hcta1">Для компаний</button>
-    <button class="bg" onclick="go('individuals')" data-i="hcta2">Для физлиц</button>
+  <div class="hero-banner-outer">
+  <div class="hero-banner">
+    <img src="astronaut-hero.webp" alt="" loading="eager" width="2200" height="1376">
+    <div class="hero-banner-text">
+      <h1 style="display:inline-block"><span data-i="h1a" style="display:block">Конвертация капитала</span><span class="ac" data-i="h1b" style="display:block;text-align:center">Платёжная инфраструктура</span></h1>
+      <p class="hero-sub" data-i="hsub">Конвертация, оплата поставщиков, AML-проверки и OTC B2B. Для бизнеса и частных клиентов.</p>
+      <div class="hero-btns">
+        <button class="bp" onclick="go('business')" data-i="hcta1">Для компаний</button>
+        <button class="bg" onclick="go('individuals')" data-i="hcta2">Для физлиц</button>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
 
