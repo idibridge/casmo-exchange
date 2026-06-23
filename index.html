@@ -494,43 +494,44 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
     display:block;
     position:relative;
     width:100%;
-    min-height:100svh;
+    min-height:130svh;
     background:#1E1E25;
     overflow:hidden;
   }
   .hero-mob-bg{position:absolute;inset:0;z-index:0}
-  .hero-mob-bg img{width:100%;height:100%;object-fit:cover;object-position:center bottom}
+  .hero-mob-bg img{width:100%;height:100%;object-fit:cover;object-position:center 80%}
   .hero-mob-content{
     position:relative;
     z-index:1;
-    padding:100px 24px 0;
+    padding:88px 24px 0;
     text-align:center;
+    max-height:52vh;
   }
   .hero-mob-content h1{
-    font-size:clamp(26px,7.5vw,42px);
+    font-size:clamp(24px,7vw,38px);
     font-weight:700;
     letter-spacing:-.02em;
-    line-height:1.15;
-    margin-bottom:12px;
+    line-height:1.1;
+    margin-bottom:10px;
     color:#fff;
     display:flex;
     flex-direction:column;
     gap:2px;
   }
   .hero-mob-content .hero-sub{
-    font-size:14px;
-    line-height:1.65;
-    max-width:320px;
-    margin:0 auto 20px;
+    font-size:13px;
+    line-height:1.5;
+    max-width:280px;
+    margin:0 auto 14px;
     color:rgba(255,255,255,.65);
   }
   .hero-mob-btns{display:flex;flex-direction:column;align-items:center;gap:10px}
   .hero-mob-btns .bp,
   .hero-mob-btns .bg{
     width:100%;
-    max-width:300px;
-    padding:13px;
-    font-size:15px;
+    max-width:280px;
+    padding:11px;
+    font-size:14px;
     text-align:center;
     border-radius:10px;
     cursor:pointer;
