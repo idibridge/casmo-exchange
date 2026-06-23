@@ -133,7 +133,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
 .hero-home .hero-banner-text{left:5%;width:44%}
 .hero-banner{position:relative;width:100%;max-width:2560px}
 .hero-banner img{width:100%;height:auto;display:block}
-.hero-home .hero-banner img{mix-blend-mode:lighten}
 .hero-banner-text{position:absolute;left:5%;top:50%;transform:translateY(-50%);width:33%;text-align:left;z-index:2}
 .eyebrow{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--ab);border-radius:6px;padding:6px 14px;margin-bottom:26px;background:var(--ah)}
 .ed{width:5px;height:5px;border-radius:50%;background:var(--a)}
@@ -143,19 +142,47 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
 .hero-sub{font-size:min(.95vw,21px);font-weight:300;color:var(--t2);line-height:1.55;margin:0 0 min(1.7vw,30px)}
 .hero-btns{display:flex;gap:min(.7vw,12px);justify-content:flex-start;flex-wrap:wrap;margin-bottom:0}
 .hero-btns .bp,.hero-btns .bg{padding:min(.95vw,17px) min(2vw,36px);font-size:min(.85vw,15px)}
+.hero-mob{display:none;position:relative;width:100%;min-height:100svh;background:#1E1E25;overflow:hidden}
+.hero-mob-img-wrap{position:absolute;inset:0;z-index:0}
+.hero-mob-img{width:100%;height:100%;object-fit:cover;object-position:center bottom}
+.hero-mob-text{position:relative;z-index:1;padding:100px 24px 0;text-align:center}
+.hero-mob-text h1{font-size:clamp(28px,8vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:14px}
+.hero-mob-text .hero-sub{font-size:15px;line-height:1.65;max-width:360px;margin:0 auto 24px;color:rgba(255,255,255,.7)}
+.hero-mob-btns{display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero-mob-btns .bp,.hero-mob-btns .bg{width:100%;max-width:320px;padding:14px;font-size:15px;text-align:center;border-radius:10px}
 @media (max-width:1100px){
-  .hero-home{min-height:auto;padding:80px 24px 60px}
-  .hero-home .hero-banner-outer{position:static;inset:auto}
-  .hero-home .hero-banner{height:auto}
-  .hero-banner{aspect-ratio:auto;border-radius:0;overflow:visible}
-  .hero-banner img{display:none}
-  .hero-banner img.mobile-img{display:block;width:100%;height:auto;max-width:560px;margin:0 auto}
-  .hero-banner-text{position:static;transform:none;width:100%;text-align:center}
-  .hero-home .hero-banner-text{left:auto;width:100%}
-  .hero h1{font-size:clamp(30px,7vw,52px);margin-bottom:16px}
-  .hero-sub{font-size:16px;line-height:1.7;max-width:480px;margin:0 auto 28px}
-  .hero-btns{justify-content:center}
-  .hero-btns .bp,.hero-btns .bg{padding:14px 30px;font-size:14px}
+  /* Скрываем десктопную картинку */
+  .hero-mob{display:block}
+  .hero-home{display:none}
+  /* Мобильный hero: текст сверху + картинка снизу */
+  .hero-home{
+    min-height:100svh;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+  }
+  .hero-mobile-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:90px 24px 0;
+    text-align:center;
+    flex:1;
+  }
+  .hero-mobile-img{
+    width:100%;
+    max-width:480px;
+    height:auto;
+    display:block;
+    margin:0 auto;
+    flex-shrink:0;
+  }
+  .hero h1{font-size:clamp(28px,7vw,48px);margin-bottom:14px;text-align:center}
+  .hero-sub{font-size:15px;line-height:1.65;max-width:420px;margin:0 auto 24px;text-align:center}
+  .hero-btns{justify-content:center;flex-direction:column;align-items:center;gap:10px}
+  .hero-btns .bp,.hero-btns .bg{width:100%;max-width:320px;padding:14px 30px;font-size:15px;text-align:center}
 }
 @media (max-width:768px){
   .hero-home{padding:72px 20px 48px}
@@ -588,6 +615,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
   </div>
   </div>
 </div>
+
+<!-- MOBILE HERO (только < 1100px) -->
+<section class="hero-mob" aria-hidden="false">
+  <div class="hero-mob-img-wrap">
+    <img src="astronaut-hero-mobile.webp" alt="" loading="eager" class="hero-mob-img">
+  </div>
+  <div class="hero-mob-text">
+    <h1><span data-i="h1a">Конвертация капитала</span><br><span class="ac" data-i="h1b">Платёжная инфраструктура</span></h1>
+    <p class="hero-sub" data-i="hsub">Конвертация, оплата поставщиков, AML-проверки и OTC B2B. Для бизнеса и частных клиентов.</p>
+    <div class="hero-mob-btns">
+      <button class="bp" onclick="go('business')" data-i="hcta1">Для компаний</button>
+      <button class="bg" onclick="go('individuals')" data-i="hcta2">Для физлиц</button>
+    </div>
+  </div>
+</section>
 
 <!-- SEGMENT CHOOSER -->
 <div class="seg-grid rv d1">
