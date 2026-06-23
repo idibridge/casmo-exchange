@@ -494,14 +494,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
     display:block;
     position:relative;
     width:100%;
-    min-height:145svh;
+    height:100svh;
     background:#1E1E25;
     overflow:hidden;
   }
-  .hero-mob-bg{position:absolute;bottom:0;left:0;right:0;height:60%;z-index:0}
-  .hero-mob-bg img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+  /* Картинка на весь блок */
+  .hero-mob-bg{position:absolute;inset:0;z-index:0}
+  .hero-mob-bg img{width:100%;height:100%;object-fit:cover;object-position:center bottom}
+  /* Текст поверх картинки сверху */
   .hero-mob-content{
-    position:relative;
+    position:absolute;
+    top:0;left:0;right:0;
     z-index:1;
     padding:88px 20px 0;
     text-align:center;
@@ -519,23 +522,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
   }
   .hero-mob-content .hero-sub{
     font-size:13px;
-    line-height:1.5;
-    max-width:280px;
-    margin:0 auto 14px;
+    line-height:1.55;
+    max-width:300px;
+    margin:0 auto 16px;
     color:rgba(255,255,255,.65);
   }
-  .hero-mob-btns{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:0px}
+  .hero-mob-btns{display:flex;flex-direction:column;align-items:center;gap:8px}
   .hero-mob-btns .bp,
   .hero-mob-btns .bg{
     width:100%;
-    max-width:280px;
-    padding:11px;
+    max-width:300px;
+    padding:12px;
     font-size:14px;
     text-align:center;
     border-radius:10px;
     cursor:pointer;
   }
-  /* Остальные секции на мобиле */
+  /* Прочие секции */
   .seg-grid{grid-template-columns:1fr;padding:48px 20px}
   .feat-grid{grid-template-columns:1fr}
   .feat2{grid-template-columns:1fr}
@@ -555,7 +558,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
   .ncta{display:none}
 }
 @media(max-width:480px){
-  .hero-mob-content h1{font-size:clamp(24px,8vw,34px)}
   .stats-row{grid-template-columns:1fr}
   .footer-cols{grid-template-columns:1fr}
 }
