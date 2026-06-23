@@ -133,7 +133,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
 .hero-home .hero-banner-text{left:5%;width:44%}
 .hero-banner{position:relative;width:100%;max-width:2560px}
 .hero-banner img{width:100%;height:auto;display:block}
-.hero-home .hero-banner img{mix-blend-mode:lighten}
 .hero-banner-text{position:absolute;left:5%;top:50%;transform:translateY(-50%);width:33%;text-align:left;z-index:2}
 .eyebrow{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--ab);border-radius:6px;padding:6px 14px;margin-bottom:26px;background:var(--ah)}
 .ed{width:5px;height:5px;border-radius:50%;background:var(--a)}
@@ -144,18 +143,38 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
 .hero-btns{display:flex;gap:min(.7vw,12px);justify-content:flex-start;flex-wrap:wrap;margin-bottom:0}
 .hero-btns .bp,.hero-btns .bg{padding:min(.95vw,17px) min(2vw,36px);font-size:min(.85vw,15px)}
 @media (max-width:1100px){
-  .hero-home{min-height:auto;padding:80px 24px 60px}
-  .hero-home .hero-banner-outer{position:static;inset:auto}
-  .hero-home .hero-banner{height:auto}
-  .hero-banner{aspect-ratio:auto;border-radius:0;overflow:visible}
-  .hero-banner img{display:none}
-  .hero-banner img.mobile-img{display:block;width:100%;height:auto;max-width:560px;margin:0 auto}
-  .hero-banner-text{position:static;transform:none;width:100%;text-align:center}
-  .hero-home .hero-banner-text{left:auto;width:100%}
-  .hero h1{font-size:clamp(30px,7vw,52px);margin-bottom:16px}
-  .hero-sub{font-size:16px;line-height:1.7;max-width:480px;margin:0 auto 28px}
-  .hero-btns{justify-content:center}
-  .hero-btns .bp,.hero-btns .bg{padding:14px 30px;font-size:14px}
+  /* Скрываем десктопную картинку */
+  .hero-home .hero-banner-outer{display:none}
+  /* Мобильный hero: текст сверху + картинка снизу */
+  .hero-home{
+    min-height:100svh;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+  }
+  .hero-mobile-wrap{display:none}
+.hero-mobile-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:90px 24px 0;
+    text-align:center;
+    flex:1;
+  }
+  .hero-mobile-img{
+    width:100%;
+    max-width:480px;
+    height:auto;
+    display:block;
+    margin:0 auto;
+    flex-shrink:0;
+  }
+  .hero h1{font-size:clamp(28px,7vw,48px);margin-bottom:14px;text-align:center}
+  .hero-sub{font-size:15px;line-height:1.65;max-width:420px;margin:0 auto 24px;text-align:center}
+  .hero-btns{justify-content:center;flex-direction:column;align-items:center;gap:10px}
+  .hero-btns .bp,.hero-btns .bg{width:100%;max-width:320px;padding:14px 30px;font-size:15px;text-align:center}
 }
 @media (max-width:768px){
   .hero-home{padding:72px 20px 48px}
@@ -587,6 +606,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;
     </div>
   </div>
   </div>
+</div>
+
+<!-- MOBILE HERO (только < 1100px) -->
+<div class="hero-mobile-wrap" id="mobile-hero-wrap">
+  <h1 style="font-size:clamp(28px,7vw,48px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:14px;text-align:center">
+    <span data-i="h1a" style="display:block">Конвертация капитала</span>
+    <span class="ac" data-i="h1b" style="display:block">Платёжная инфраструктура</span>
+  </h1>
+  <p class="hero-sub" data-i="hsub" style="text-align:center;max-width:420px;margin:0 auto 24px">Конвертация, оплата поставщиков, AML-проверки и OTC B2B. Для бизнеса и частных клиентов.</p>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:320px;margin:0 auto 0">
+    <button class="bp" onclick="go('business')" data-i="hcta1" style="width:100%;padding:14px;font-size:15px">Для компаний</button>
+    <button class="bg" onclick="go('individuals')" data-i="hcta2" style="width:100%;padding:14px;font-size:15px">Для физлиц</button>
+  </div>
+  <img src="astronaut-hero-mobile.webp" alt="" class="hero-mobile-img" loading="eager">
 </div>
 
 <!-- SEGMENT CHOOSER -->
