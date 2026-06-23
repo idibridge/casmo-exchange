@@ -1594,9 +1594,10 @@ async function submitLead(){
   }
 }
 
-let lang='ru';
+let lang=(()=>{try{const s=localStorage.getItem('casmo_lang');if(s&&['ru','en','es'].includes(s))return s;}catch(e){}return'ru';})();
 function setL(l){
   lang=l;
+  try{localStorage.setItem('casmo_lang',l);}catch(e){}
   document.getElementById('lmenu').classList.remove('open');
   document.getElementById('lcur').classList.remove('open');
   // globe icon stays the same
@@ -1611,6 +1612,9 @@ function setL(l){
   document.querySelectorAll('.lang-block').forEach(el=>{el.style.display=el.getAttribute('data-lang')===l?'':'none'});
   document.documentElement.lang=l;
 }
+
+
+setL(lang);
 
 // Burger menu
 function togBurger(){
