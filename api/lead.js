@@ -36,7 +36,7 @@ export default async function handler(req, res) {
   }
 
   const body = req.body || {};
-  const { site, name, contact, amount, direction, message, hp } = body;
+  const { site, name, contact, amount, direction, message, hp, consent, consent_lang, consent_ts } = body;
 
   // honeypot: скрытое поле, которое боты обычно заполняют, а люди — нет.
   // если оно непустое — молча отвечаем "успех" и ничего не отправляем.
@@ -47,6 +47,11 @@ export default async function handler(req, res) {
 
   if (!contact || String(contact).trim().length < 2) {
     return res.status(400).json({ error: 'missing_contact' });
+  }
+
+  // Согласие на обработку персональных данных обязательно для формы casmo.
+  if (site === 'casmo' && !consent) {
+    return res.status(400).json({ error: 'consent_required' });
   }
 
   const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -68,6 +73,7 @@ export default async function handler(req, res) {
     amount ? `Сумма: ${amount}` : null,
     direction ? `Направление: ${direction}` : null,
     message ? `Комментарий: ${message}` : null,
+    consent ? `✅ Согласие на обработку ПДн: да${consent_ts ? ` (${consent_ts})` : ''}${consent_lang ? `, язык: ${consent_lang}` : ''}` : null,
   ].filter(Boolean);
   const text = lines.join('\n');
 
