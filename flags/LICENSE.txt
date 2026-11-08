@@ -1,0 +1,1 @@
+Circle flags by HatScripts (https://github.com/HatScripts/circle-flags), MIT License.

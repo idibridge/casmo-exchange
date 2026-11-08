@@ -24,6 +24,10 @@
     {
       "source": "/privacy",
       "destination": "/"
+    },
+    {
+      "source": "/ved",
+      "destination": "/"
     }
   ],
   "headers": [
@@ -59,7 +63,7 @@
       ]
     },
     {
-      "source": "/(otc|business|individuals|how|about|privacy)",
+      "source": "/(otc|business|individuals|ved|how|about|privacy)",
       "headers": [
         {
           "key": "Cache-Control",
