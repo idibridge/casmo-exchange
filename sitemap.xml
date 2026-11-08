@@ -1,11 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://casmo.io/</loc><lastmod>2026-11-07</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://casmo.io/business</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://casmo.io/individuals</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://casmo.io/ved</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://casmo.io/otc</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://casmo.io/how</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://casmo.io/about</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://casmo.io/privacy</loc><lastmod>2026-11-07</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://casmo.io/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/en</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/es</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/business</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/business"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/business"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/business"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/en/business</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/business"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/business"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/business"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/es/business</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/business"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/business"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/business"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/ved</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/ved"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/ved"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/ved"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/ved"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/en/ved</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/ved"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/ved"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/ved"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/ved"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/es/ved</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/ved"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/ved"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/ved"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/ved"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/individuals</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/individuals"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/individuals"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/individuals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/individuals"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/en/individuals</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/individuals"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/individuals"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/individuals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/individuals"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/es/individuals</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/individuals"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/individuals"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/individuals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/individuals"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/how</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/how"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/how"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/how"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/how"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/en/how</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/how"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/how"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/how"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/how"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/es/how</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/how"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/how"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/how"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/how"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/contacts</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/contacts"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/contacts"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/contacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/contacts"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/en/contacts</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/contacts"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/contacts"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/contacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/contacts"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/es/contacts</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/contacts"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/contacts"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/contacts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/contacts"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/privacy"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/privacy"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://casmo.io/es/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://casmo.io/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casmo.io/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casmo.io/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casmo.io/privacy"/>
+    <lastmod>2026-11-08</lastmod>
+    <priority>0.3</priority>
+  </url>
 </urlset>

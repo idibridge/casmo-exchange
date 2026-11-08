@@ -10,15 +10,11 @@
       "destination": "/"
     },
     {
-      "source": "/otc",
-      "destination": "/"
-    },
-    {
       "source": "/how",
       "destination": "/"
     },
     {
-      "source": "/about",
+      "source": "/contacts",
       "destination": "/"
     },
     {
@@ -28,6 +24,54 @@
     {
       "source": "/ved",
       "destination": "/"
+    },
+    {
+      "source": "/en/individuals",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/en/business",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/en/how",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/en/contacts",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/en/privacy",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/en/ved",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/es/individuals",
+      "destination": "/es/index.html"
+    },
+    {
+      "source": "/es/business",
+      "destination": "/es/index.html"
+    },
+    {
+      "source": "/es/how",
+      "destination": "/es/index.html"
+    },
+    {
+      "source": "/es/contacts",
+      "destination": "/es/index.html"
+    },
+    {
+      "source": "/es/privacy",
+      "destination": "/es/index.html"
+    },
+    {
+      "source": "/es/ved",
+      "destination": "/es/index.html"
     }
   ],
   "headers": [
@@ -63,13 +107,45 @@
       ]
     },
     {
-      "source": "/(otc|business|individuals|ved|how|about|privacy)",
+      "source": "/((?:en/|es/)?(?:business|individuals|ved|how|contacts|privacy)|en|es)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, must-revalidate"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/contacts",
+      "permanent": true
+    },
+    {
+      "source": "/en/about",
+      "destination": "/en/contacts",
+      "permanent": true
+    },
+    {
+      "source": "/es/about",
+      "destination": "/es/contacts",
+      "permanent": true
+    },
+    {
+      "source": "/otc",
+      "destination": "/contacts",
+      "permanent": true
+    },
+    {
+      "source": "/en/otc",
+      "destination": "/en/contacts",
+      "permanent": true
+    },
+    {
+      "source": "/es/otc",
+      "destination": "/es/contacts",
+      "permanent": true
     }
   ]
 }
