@@ -27,51 +27,51 @@
     },
     {
       "source": "/en/individuals",
-      "destination": "/en/index.html"
+      "destination": "/en"
     },
     {
       "source": "/en/business",
-      "destination": "/en/index.html"
+      "destination": "/en"
     },
     {
       "source": "/en/how",
-      "destination": "/en/index.html"
+      "destination": "/en"
     },
     {
       "source": "/en/contacts",
-      "destination": "/en/index.html"
+      "destination": "/en"
     },
     {
       "source": "/en/privacy",
-      "destination": "/en/index.html"
+      "destination": "/en"
     },
     {
       "source": "/en/ved",
-      "destination": "/en/index.html"
+      "destination": "/en"
     },
     {
       "source": "/es/individuals",
-      "destination": "/es/index.html"
+      "destination": "/es"
     },
     {
       "source": "/es/business",
-      "destination": "/es/index.html"
+      "destination": "/es"
     },
     {
       "source": "/es/how",
-      "destination": "/es/index.html"
+      "destination": "/es"
     },
     {
       "source": "/es/contacts",
-      "destination": "/es/index.html"
+      "destination": "/es"
     },
     {
       "source": "/es/privacy",
-      "destination": "/es/index.html"
+      "destination": "/es"
     },
     {
       "source": "/es/ved",
-      "destination": "/es/index.html"
+      "destination": "/es"
     }
   ],
   "headers": [
